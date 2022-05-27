@@ -1,0 +1,13 @@
+version: "3"
+services:
+  caddy:
+    image: "zwimer/cloudflare-caddy"
+    restart: unless-stopped
+    container_name: "caddy"
+    network_mode: "host"
+    environment:
+      - CLOUDFLARE_API_KEY=put your api key here
+    volumes:
+      - ./Caddyfile:/srv/Caddyfile:ro
+      - ./data:/data
+    command: ["caddy", "run"]

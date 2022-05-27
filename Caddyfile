@@ -1,0 +1,6 @@
+example.my_domain.com {
+	tls my_email@gmail.com {
+		dns cloudflare {env.CLOUDFLARE_API_KEY}
+	}
+	reverse_proxy localhost:8000
+}
